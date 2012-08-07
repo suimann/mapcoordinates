@@ -1,7 +1,7 @@
 from django.db import models
 
 class Map(models.Model):
-    id_references = models.CharField(max_length=10)
+    map_id = models.CharField(max_length=10)
     map_name = models.CharField(max_length=50)    
     map_url = models.CharField(max_length=1000)
 
@@ -11,7 +11,7 @@ class Map(models.Model):
 class Location(models.Model):
     map = models.ForeignKey(Map)
     room_name = models.CharField(max_length=20)
-    coordinate = models.CharField(max_length=15)
+    coordinate = models.CharField(max_length=15,blank=True, null=True)
     
-    def __unicode__():
+    def __unicode__(self):
         return self.room_name    

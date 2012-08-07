@@ -11,7 +11,7 @@ class Map(models.Model):
 class Location(models.Model):
     map = models.ForeignKey(Map)
     room_name = models.CharField(max_length=20)
-    coordinate = models.CharField(max_length=15)
+    coordinate = models.CharField(max_length=15,blank=True, null=True)
     
-    def __unicode__():
+    def __unicode__(self):
         return self.room_name    
