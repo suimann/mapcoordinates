@@ -1,14 +1,17 @@
 from django.db import models
 
-# locations zum Testen nachgebaut
-class Location(models.Model):
-    entity_id = models.CharField(max_length=8)
-    name = models.CharField(max_length=3)
+class Map(models.Model):
+    map_id = models.CharField(max_length=10)
+    map_name = models.CharField(max_length=50)    
+    map_url = models.CharField(max_length=1000)
+
     def __unicode__(self):
-        return self.name
+        return self.map_name
         
-class Coordinate(models.Model):
-    location = models.ForeignKey(Location)
-    coordinate = models.CharField(max_length=9)
+class Location(models.Model):
+    map = models.ForeignKey(Map)
+    room_name = models.CharField(max_length=20)
+    coordinate = models.CharField(max_length=15)
+    
     def __unicode__():
-        return self.coordinate    
+        return self.room_name    
