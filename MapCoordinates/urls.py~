@@ -1,10 +1,12 @@
 from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
+    # Path to Coordinate Form
+    url(r'^coord/', 'maps.views.index'),
     # Examples:
     # url(r'^$', 'MapCoordinates.views.home', name='home'),
     # url(r'^MapCoordinates/', include('MapCoordinates.foo.urls')),
@@ -14,4 +16,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+
+
 )
