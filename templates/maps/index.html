@@ -1,14 +1,14 @@
 <html>
     <head>
-        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="http://media.abstractmgmt.com/others/443/jquery.min.js"></script>
         <script type="text/javascript">
-            $(document).ready(function() {
-                $('img').click(function(e) {
-                    var offset = $(this).offset();
-                    var coordinates = "X=" + (e.clientX - offset.left) + "," + " Y=" + (e.clientY - offset.left)
-                    $('.coord').text(coordinates);
-                });
-            });
+		    $(document).ready(function() {
+		     	$('img').click(function(e) {
+			       	var offset = $(this).offset();
+				    var coordinates = "Koordinaten: " + (e.clientX - offset.left) + ", "  + (e.clientY - offset.left)
+				    $('.coord').text(coordinates);
+		     	});
+		    });
         </script>
         <style type="text/css">
             .examplediv {
@@ -16,17 +16,33 @@
                 border-style:solid #000000 1px;
             }
 
+            .coord {
+                display: inline;
+            }
+
             #divid {
                 position:fixed;
-                left:0px; top:0px; width:300px; height:30px;
+                left:0px; top:0px; width:1000px; height:30px;
             }
         </style>
     </head>
     <body>
         <div id="divid" class="examplediv">
+            
             <select>
-                <option>{{ }}</option>
+            {% for map in map_list%}
+                <option>{{ map.map_name }}</option>
+            {% endfor %}
             </select>
+
+            <select>
+            {% for location in location_list%}
+                <option>{{ location.location_name }}</option>
+            {% endfor %}
+            </select>
+
+            <div class="coord">Koordinaten:</div>
+
         </div>
         <img src="http://media.abstractmgmt.com/others/443/messehaus.png">
     </body>
