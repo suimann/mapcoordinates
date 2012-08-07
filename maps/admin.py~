@@ -1,8 +1,5 @@
-from maps.models import Location, Coordinate
+from maps.models import Map, Location
 from django.contrib import admin
 
-class LocationAdmin(admin.ModelAdmin):
-    fields=['entity_id', 'name']
-
-admin.site.register(Location, LocationAdmin)
-admin.site.register(Coordinate)
+admin.site.register(MapAdmin)
+admin.site.register(Location)
