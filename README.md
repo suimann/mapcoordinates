@@ -1,4 +1,4 @@
-mapcoordinates
+MapCoordinates
 ==============
 
-MapCoordinates
+Just a simple Django test!
