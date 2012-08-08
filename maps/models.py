@@ -18,7 +18,7 @@ class Location(models.Model):
 
 
 class Link(models.Model):
-    map= models.ForeignKey(Map)
+    map = models.ForeignKey(Map)
     location = models.ForeignKey(Location)        
     link_coordinate = models.CharField(max_length=15,blank=True, null=True)
 

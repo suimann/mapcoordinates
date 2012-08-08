@@ -10,7 +10,7 @@ class Map(models.Model):
 
 
 class Location(models.Model):
-    #location_name = models.CharField(max_length=20)
+    location_name = models.CharField(max_length=20)
     
     def __unicode__(self):
         return self.location_name
