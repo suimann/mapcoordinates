@@ -43,26 +43,27 @@
         </style>
     </head>
     <body>
-        <div id="divid" class="examplediv">
-            
-            <select class="target" onchange="ChangeImage(this.value,'bildid');">
-                <option>----</option>            
-            {% for map in map_list%}
-                <option value="{{ map.map_url }}">{{ map.map_name }}</option>
-            {% endfor %}
-            </select>
+        <form  method="post">
+            <div id="divid" class="examplediv">
+                {% csrf_token %}
+                <select class="target" onchange="ChangeImage(this.value,'bildid');">
+                    <option>----</option>            
+                {% for map in map_list %}
+                    <option value="{{ map.map_url }}">{{ map.map_name }}</option>
+                {% endfor %}
+                </select>
 
-            <select>
-            {% for location in location_list%}
-                <option>{{ location.location_name }}</option>
-            {% endfor %}
-            </select>
+                <select>
+                {% for location in location_list%}
+                    <option>{{ location.location_name }}</option>
+                {% endfor %}
+                </select>
 
-            <div id="coord" class="coord">Koordinaten:</div>
-            <button class="button">Add to Database</button>
+                <div id="coord" class="coord">Koordinaten:</div>
+                <input type="submit" class="button">Add to Database</button>
 
-        </div>
-
+            </div>
+        </form>
         <img id="bildid" src>
     </body>
 </html>
