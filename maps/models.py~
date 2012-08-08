@@ -18,9 +18,9 @@ class Location(models.Model):
 
 
 class Link(models.Model):
-    map= models.ForeignKey(Map)
+    map = models.ForeignKey(Map)
     location = models.ForeignKey(Location)        
     link_coordinate = models.CharField(max_length=15,blank=True, null=True)
 
     def __unicode__(self):
-        return "map_id = " + self.map_id + "location_id = " + self.location_id
+        return "Karte= \"" + self.map.map_name + "\" Raum= \"" + self.location.location_name +"\""

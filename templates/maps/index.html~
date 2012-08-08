@@ -1,34 +1,68 @@
 <html>
     <head>
-        <script type="text/javascript" src="jquery.js"></script>
+        <!--Script zum Koordinaten ermitteln-->
+        <script type="text/javascript" src="http://media.abstractmgmt.com/others/443/jquery.min.js"></script>
         <script type="text/javascript">
-            $(document).ready(function() {
+		      $(document).ready(function() {
                 $('img').click(function(e) {
-                    var offset = $(this).offset();
-                    var coordinates = "X=" + (e.clientX - offset.left) + "," + " Y=" + (e.clientY - offset.left)
-                    $('.coord').text(coordinates);
-                });
-            });
+    			       var offset = $(this).offset();
+    				    var coordinates = "Koordinaten: " + (e.pageX - offset.left) + ", "  + (e.pageY - offset.top)
+    				    $('.coord').text(coordinates);
+    		     	 });
+    		   });
         </script>
+        
+        <script language="Javascript" type="text/javascript">
+
+            function ChangeImage(newimage,imageid) {
+                if(document.getElementById(imageid).src != newimage) {
+                    document.getElementById(imageid).src = newimage;
+                }               
+            }
+
+        </script>
+
         <style type="text/css">
             .examplediv {
                 background-color:#efefef;
                 border-style:solid #000000 1px;
             }
 
+            .coord {
+                display: inline;
+            }
+
             #divid {
                 position:fixed;
-                left:0px; top:0px; width:300px; height:30px;
+                left:0px; top:0px; width:1000px; height:30px;
+            }
+            .button {
+                position: absolute;
+                left: 800px;             
             }
         </style>
     </head>
     <body>
         <div id="divid" class="examplediv">
-            <select>
-                <option>Blaha1</option>
-                <option>Blaha1</option>
+            
+            <select class="target" onchange="ChangeImage(this.value,'bildid');">
+                <option>----</option>            
+            {% for map in map_list%}
+                <option value="{{ map.map_url }}">{{ map.map_name }}</option>
+            {% endfor %}
             </select>
+
+            <select>
+            {% for location in location_list%}
+                <option>{{ location.location_name }}</option>
+            {% endfor %}
+            </select>
+
+            <div id="coord" class="coord">Koordinaten:</div>
+            <button class="button">Add to Database</button>
+
         </div>
-        <img src="http://media.abstractmgmt.com/others/443/messehaus.png">
+
+        <img id="bildid" src>
     </body>
 </html>
