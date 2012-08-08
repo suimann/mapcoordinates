@@ -23,4 +23,4 @@ class Link(models.Model):
     link_coordinate = models.CharField(max_length=15,blank=True, null=True)
 
     def __unicode__(self):
-        return "map_id = " + self.map_id + "location_id = " + self.location_id
+        return self.map.map_name + self.location.location_name
