@@ -24,3 +24,4 @@ class Link(models.Model):
 
     def __unicode__(self):
         return "Karte= \"" + self.map.map_name + "\" Raum= \"" + self.location.location_name +"\""
+       

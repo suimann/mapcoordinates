@@ -43,6 +43,8 @@
         </style>
     </head>
     <body>
+	    <form action="" method="post">
+		{% csrf_token %}
         <div id="divid" class="examplediv">
             
             <select class="target" onchange="ChangeImage(this.value,'bildid');">
@@ -59,10 +61,13 @@
             </select>
 
             <div id="coord" class="coord">Koordinaten:</div>
+			Link:{{ link.link_coordinate }}
+			
             <button class="button">Add to Database</button>
 
         </div>
 
         <img id="bildid" src>
+		</form>
     </body>
 </html>
