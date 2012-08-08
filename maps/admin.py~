@@ -1,4 +1,18 @@
 from maps.models import Map, Location, Link
 from django.contrib import admin
 
-admin.site.register(Map, Location, Link)
+class MapAdmin(admin.ModelAdmin):
+    fieldsets = [
+    ('Map information', {'fields': ['map_name', 'map_url']}),    
+    ]    
+    list_display = ('map_name', 'map_url')
+
+class LinkAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {'fields': ['map']}),
+        ('Location', { 'fields': ['location', 'link_coordinate'] }),    
+    ]
+
+admin.site.register(Map, MapAdmin)
+admin.site.register(Location) # LinkAdmin eintragen!
+admin.site.register(Link, LinkAdmin)
