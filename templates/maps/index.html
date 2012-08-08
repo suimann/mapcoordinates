@@ -20,7 +20,7 @@
                 }               
             }
 
-        </script>
+        </script>	
 
         <style type="text/css">
             .examplediv {
@@ -41,9 +41,10 @@
                 left: 800px;             
             }
         </style>
+		
     </head>
     <body>
-	    <form action="" method="post">
+	    <form action="maps.views.saveindb" method="post">
 		{% csrf_token %}
         <div id="divid" class="examplediv">
             
@@ -60,14 +61,16 @@
             {% endfor %}
             </select>
 
-            <div id="coord" class="coord">Koordinaten:</div>
-			Link:{{ link.link_coordinate }}
+            <div id="coord" class="coord">Koordinaten:</div>   
+
+           {% if error_message %}<p><strong>{{ error_message }} </strong></p>{% endif %}			
 			
             <button class="button">Add to Database</button>
 
         </div>
 
         <img id="bildid" src>
+		
 		</form>
     </body>
 </html>

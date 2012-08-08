@@ -11,7 +11,7 @@ class Map(models.Model):
 
 class Location(models.Model):
     location_name = models.CharField(max_length=20)
-    
+	
     def __unicode__(self):
         return self.location_name
 
@@ -21,7 +21,9 @@ class Link(models.Model):
     map = models.ForeignKey(Map)
     location = models.ForeignKey(Location)        
     link_coordinate = models.CharField(max_length=15,blank=True, null=True)
+    #bla = "Karte=\""+map.name+"\"Raum=\""+location.name+"\""
 
     def __unicode__(self):
         return "Karte= \"" + self.map.map_name + "\" Raum= \"" + self.location.location_name +"\""
+		#return self.bla
        
