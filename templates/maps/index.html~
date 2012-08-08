@@ -6,17 +6,17 @@
 		      $(document).ready(function() {
                 $('img').click(function(e) {
     			       var offset = $(this).offset();
-    				    var coordinates = "Koordinaten: " + (e.pageX - offset.left) + ", "  + (e.pageY - offset.top)
-    				    $('.coord').text(coordinates);
+    				    var coordinates = (e.pageX - offset.left) + ", "  + (e.pageY - offset.top)
+    				    $('.coord').val(value=coordinates);
     		     	 });
     		   });
         </script>
         
         <script language="Javascript" type="text/javascript">
 
-            function ChangeImage(newimage,imageid) {
-                if(document.getElementById(imageid).src != newimage) {
-                    document.getElementById(imageid).src = newimage;
+            function ChangeImage(newurl,imageid) {
+                if(document.getElementById(imageid).src != newurl) {
+                    document.getElementById(imageid).src = newurl;
                 }               
             }
 
@@ -43,27 +43,27 @@
         </style>
     </head>
     <body>
-        <form  method="post">
+        <form  action="/coords" method="post">
             <div id="divid" class="examplediv">
                 {% csrf_token %}
-                <select class="target" onchange="ChangeImage(this.value,'bildid');">
-                    <option>----</option>            
+                <select name="map_name" class="target" onchange="ChangeImage(this.value ,'bildid');">
+                    <option selected>----</option>            
                 {% for map in map_list %}
                     <option value="{{ map.map_url }}">{{ map.map_name }}</option>
                 {% endfor %}
                 </select>
 
-                <select>
-                {% for location in location_list%}
-                    <option>{{ location.location_name }}</option>
+                <select name="location_name">
+                {% for location in location_list %}
+                    <option value="{{ location.id }}">{{ location.location_name }}</option>
                 {% endfor %}
                 </select>
 
-                <div id="coord" class="coord">Koordinaten:</div>
-                <input type="submit" class="button">Add to Database</button>
+                Koordinaten:&nbsp; <input name="coords" class="coord" value="">
+                <input name="submit_button" type="submit" class="button">
 
             </div>
         </form>
-        <img id="bildid" src>
+        <img id="bildid">
     </body>
 </html>
