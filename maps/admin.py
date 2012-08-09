@@ -3,6 +3,7 @@ from django.contrib import admin
 <<<<<<< HEAD
     
 
+<<<<<<< HEAD
 class LocationAdmin(admin.ModelAdmin):
     fields=['entity_id', 'name']
 
@@ -10,6 +11,8 @@ admin.site.register(Location, LocationAdmin)
 admin.site.register(Coordinate)
 =======
 
+=======
+>>>>>>> jan
 class MapAdmin(admin.ModelAdmin):
     fieldsets = [
     ('Map information', {'fields': ['map_name', 'map_url']}),    
@@ -27,8 +30,12 @@ class LinkAdmin(admin.ModelAdmin):
 admin.site.register(Map, MapAdmin)
 admin.site.register(Location)
 <<<<<<< HEAD
+<<<<<<< HEAD
 admin.site.register(Link)
 >>>>>>> 21eadf15c6665b9efdd15b5a3e422e268df671b6
+=======
+admin.site.register(Link, LinkAdmin)
+>>>>>>> jan
 =======
 admin.site.register(Link, LinkAdmin)
 >>>>>>> jan
