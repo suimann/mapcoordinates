@@ -1,0 +1,211 @@
+[
+    {
+        "pk": 1,
+        "model": "maps.map",
+        "fields": {
+            "map_name": "Level -1",
+            "map_url": "http://media.abstractmgmt.com/others/443/cc_leipzig__level_-1.png"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "maps.map",
+        "fields": {
+            "map_name": "Level 0",
+            "map_url": "http://media.abstractmgmt.com/others/443/cc_leipzig__level_0.png"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "maps.map",
+        "fields": {
+            "map_name": "Level 1",
+            "map_url": "http://media.abstractmgmt.com/others/443/cc_leipzig__level_1.png"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "maps.map",
+        "fields": {
+            "map_name": "Level 2",
+            "map_url": "http://media.abstractmgmt.com/others/443/cc_leipzig__level_2.png"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "maps.map",
+        "fields": {
+            "map_name": "Exhibitions",
+            "map_url": "http://media.abstractmgmt.com/others/443/exhibitions.png"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "maps.map",
+        "fields": {
+            "map_name": "Messehaus",
+            "map_url": "http://media.abstractmgmt.com/others/443/messehaus.png"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Registrierung"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Garderobe"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Medienannahme"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Saal A1"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Saal A2"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Saal A3"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Saal A4"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Raum B1"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Raum B2"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Raum B3"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Raum B4"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Saal 1"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Saal 2"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Saal 3"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Saal 4"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Saal 5"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Raum 6"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Raum 8"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Raum 9"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Raum 10"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Raum 11"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Raum 14"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "maps.location",
+        "fields": {
+            "location_name": "Raum 13"
+        }
+    }
+]

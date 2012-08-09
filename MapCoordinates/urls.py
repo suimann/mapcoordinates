@@ -6,7 +6,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Path to Coordinate Form
-    url(r'^maps/', 'maps.views.index'),
+    url(r'^maps/$', 'maps.views.index'),
+    #url(r'^maps/setter/$', 'maps.views.setter'),
     # Examples:
     # url(r'^$', 'MapCoordinates.views.home', name='home'),
     # url(r'^MapCoordinates/', include('MapCoordinates.foo.urls')),
