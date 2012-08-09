@@ -12,6 +12,8 @@ class LinkAdmin(admin.ModelAdmin):
         (None, {'fields': ['map']}),
         ('Location', { 'fields': ['location', 'link_coordinate'] }),    
     ]
+    list_display = ('map', 'location', 'link_coordinate')
+    list_filter = ['map']
 
 admin.site.register(Map, MapAdmin)
 admin.site.register(Location)
