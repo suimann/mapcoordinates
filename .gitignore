@@ -1,13 +1,7 @@
 *.log
 *.pot
 *.pyc
-<<<<<<< HEAD
 *~
 *.db
-=======
-*.py~
-*~
->>>>>>> master
 local_settings.py
-*~
-*.db
+
