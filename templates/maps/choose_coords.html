@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <!--Script zum Koordinaten ermitteln-->
+        <script type="text/javascript" src="http://media.abstractmgmt.com/others/443/jquery.min.js"></script>
+        <script type="text/javascript">
+		      $(document).ready(function() {
+                  $('img').click(function(e) {
+    			      var offset = $(this).offset();
+    				  var coordinates = (e.pageX - offset.left) + ", "  + (e.pageY - offset.top)
+    				  $('.coord').val(value=coordinates);
+    		      });
+    		  });
+        </script>
+        
+        <script language="Javascript" type="text/javascript">
+            function displayCoordinates(aLocation_id) 
+            {
+                var coordinateList = {{ coordinates_list_data|safe }};
+                
+                for(i=0; i<coordinateList.length; i++) 
+                {
+                    if(coordinateList[i].fields.location == aLocation_id)
+                    {
+                        document.getElementById("coordField").value = coordinateList[i].fields.link_coordinate;
+                    }
+                    else
+                    {
+                    document.getElementById("coordField").value = "";
+                    }                    
+                }
+                         
+                //var id = coordinateList[0]
+                //var linkObject = jQuery.parseJSON(coordinateListJson[0]);   
+                //var field = jQuery.parseJSON(linkObject.fields);
+                //alert(field);     
+            }
+        </script>
+
+        <style type="text/css">
+            .examplediv {
+                background-color:#efefef;
+                border-style:solid #000000 1px;
+            }
+
+            .coord {
+                display: inline;
+            }
+
+            #divid {
+                position:fixed;
+                left:0px; top:0px; width:1000px; height:30px;
+            }
+            .button {
+                position: absolute;
+                left: 800px;             
+            }
+        </style>
+    </head>
+    <body>
+        <form  action="." method="post">
+            <div id="divid" class="examplediv">
+                {% csrf_token %}
+                
+                
+                <select name="location_name" onchange="displayCoordinates(this.form.location_name.options[this.form.location_name.selectedIndex].value)">
+                    <option {% if actual_location == 'leer' %}selected{% endif %}>----</option>
+                {% for location in location_list %}
+                    <option value="{{ location.id }}">{{ location.location_name }}</option>
+                {% endfor %}
+                </select>
+                
+                <select name="coord_name" onchange="displayCoordinates(coordinates.id)">
+                {% for coordinates in coordinates_list %}
+                    {% if coordinates.map_id == map.id %}
+                    <option value="{{ coordinates.id }}">{{ coordinates.link_coordinate }}</option>
+                    {% endif %}
+                {% endfor %}
+                </select>
+                
+                <input type="hidden" name="map_id" value="{{ map.id }}">
+                
+                Koordinaten:&nbsp; <input type="text" readonly="TRUE" name="coords" id="coordField" class="coord "value="">
+                <input name="submit_button" type="submit" class="button">
+
+            </div>
+        </form>
+        <img id="bildid" src="{{ map.map_url }}">
+    </body>
+</html>

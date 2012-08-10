@@ -1,35 +1,9 @@
 <html>
     <head>
-        <!--Script zum Koordinaten ermitteln-->
-        <script type="text/javascript" src="http://media.abstractmgmt.com/others/443/jquery.min.js"></script>
-        <script type="text/javascript">
-		      $(document).ready(function() {
-                $('img').click(function(e) {
-    			       var offset = $(this).offset();
-    				    var coordinates = (e.pageX - offset.left) + ", "  + (e.pageY - offset.top)
-    				    $('.coord').val(value=coordinates);
-    		     	 });
-    		   });
-        </script>
-        
-        <script language="Javascript" type="text/javascript">
-
-            function ChangeImage(newurl,imageid) {
-                if(document.getElementById(imageid).src != newurl) {
-                    document.getElementById(imageid).src = newurl;
-                }               
-            }
-
-        </script>
-
         <style type="text/css">
             .examplediv {
                 background-color:#efefef;
                 border-style:solid #000000 1px;
-            }
-
-            .coord {
-                display: inline;
             }
 
             #divid {
@@ -38,32 +12,24 @@
             }
             .button {
                 position: absolute;
-                left: 800px;             
+                left: 130px;             
             }
         </style>
     </head>
     <body>
-        <form  action="." method="post">
+        <form  action="choose_coords/" method="post">
             <div id="divid" class="examplediv">
                 {% csrf_token %}
-                <select name="map_name" class="target" onchange="ChangeImage(this.value ,'bildid');">
-                    <option selected>----</option>            
+                <select name="map_id" class="target">
+                    <option>----</option>            
                 {% for map in map_list %}
-                    <option value="{{ map.map_url }}">{{ map.map_name }}</option>
+                    <option value="{{ map.id }}">{{ map.map_name }}</option>
                 {% endfor %}
                 </select>
-
-                <select name="location_name">
-                {% for location in location_list %}
-                    <option value="{{ location.id }}">{{ location.location_name }}</option>
-                {% endfor %}
-                </select>
-
-                Koordinaten:&nbsp; <input name="coords" class="coord" value="">
-                <input name="submit_button" type="submit" class="button">
+                <input name="from_index" type="hidden" value="True">
+                <input name="submit_button" type="submit" class="button" value="Karte ausw&auml;hlen">
 
             </div>
         </form>
-        <img id="bildid">
     </body>
 </html>

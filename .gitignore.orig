@@ -1,0 +1,11 @@
+*.log
+*.pot
+*.pyc
+*~
+*.db
+<<<<<<< HEAD
+=======
+*.py~
+>>>>>>> 02f825beb93e865d2f7b1961ae96546fafb6e4af
+local_settings.py
+

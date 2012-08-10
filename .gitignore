@@ -3,5 +3,6 @@
 *.pyc
 *~
 *.db
+*.py~
 local_settings.py
 
