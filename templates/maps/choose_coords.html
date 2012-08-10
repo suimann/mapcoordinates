@@ -14,7 +14,7 @@
         
         <script language="Javascript" type="text/javascript">
             function ChangeCoordinates(coords, show_coord) {
-                var array = [{{ coordinates.link_coordinate|safe }}]
+                var array = {{ link_coord_json|safe }}
                 
                 if(document.getElementById(show_coord).valueOf() != coords) {
                     document.getElementById(show_coord).valueOf() = coords;
@@ -43,12 +43,12 @@
         </style>
     </head>
     <body>
-        <form  action="." method="post">
+        <form  action="/choose_coords/saveing/" method="post">
             <div id="divid" class="examplediv">
                 {% csrf_token %}
                 
                 
-                <select name="location_name">
+                <select name="location_id" onchange="ChangeCoordinates(this.value, map.id, 'coord')">
                     <option {% if actual_location == 'leer' %}selected{% endif %}>----</option>
                 {% for location in location_list %}
                     <option value="{{ location.id }}">{{ location.location_name }}</option>
