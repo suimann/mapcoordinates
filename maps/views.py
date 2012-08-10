@@ -6,7 +6,6 @@ from maps.models import Map, Location, Link
 from django.utils import simplejson
 from django.core import serializers
 
-
 #------------------ Laden der Begruessungsseite ----------------------------
 @csrf_exempt
 def index(request):
@@ -24,13 +23,11 @@ def choose(request):
     map_id = request.POST['map_id']
     map = Map.objects.get(id=map_id)
 
-    #Holen der zu uebergebenen Standard Daten aus der Datenbank
+    #Holen der zu uebergebenen Standard Daten aus der Datenbank.
     location_list = Location.objects.all().order_by('-location_name')
-    coordinates_list_data = serializers.serialize("json", Link.objects.filter(map_id=map.id).all())
-    
-    #coordinates_list_data = Link.objects.filter(map_id=map.id).all().values_list('location', 'link_coordinate')
-    
+        
     # Zur weiteren Verarbeitung der link-Liste wird sie in json umgewandelt
+    coordinates_list_data = serializers.serialize("json", Link.objects.filter(map_id=map.id).all())
     json_list = simplejson.dumps(coordinates_list_data)
 
     return render_to_response('maps/choose_coords.html', {'map': map, 'location_list': location_list, 'coordinates_list_data': coordinates_list_data})
