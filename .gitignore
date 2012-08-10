@@ -3,5 +3,9 @@
 *.pyc
 *~
 *.db
+<<<<<<< HEAD
 *.py~
+=======
+>>>>>>> 90f8ecca7a32ddf208a48ef11dc18657e3e199d5
 local_settings.py
+
