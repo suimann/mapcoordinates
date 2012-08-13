@@ -39,13 +39,36 @@ def save(request):
 
     #Deklaration der Variablen um die Selektion beizubehalten
     map_id = request.POST['map_id']
-    map = Map.objects.get(id=map_id)
+    #map = Map.objects.get(id=map_id)
 
-    #Holen der zu uebergebenen Standard Daten aus der Datenbank
+    #Holen der zu uebergebenen Standard Daten aus der Datenbank.
     location_list = Location.objects.all().order_by('-location_name')
-    coordinates_list = Link.objects.all()
+    
+    #Speichern
+    m = Map.objects.get_or_create(pk = map_id)[0]
+    m.save()
+   
+    print('location:' + request.POST['location_name'])   
+    
+    loc = Location.objects.get_or_create(pk= request.POST['location_name'])[0]
+    loc.save()   
+    
+    print(loc)
+    print(m)
+    print(request.POST['coords'])    
+    
+    l = Link.objects.get_or_create(map=m, location=loc)[0]   
+    l.link_coordinate = request.POST['coords']    
+    l.save()
+    
+    #p = Link(map_id=request.POST['map_id'], location_id=request.POST['location_name'], link_coordinate=request.POST['coords'])
+    #p.save()
 
-    return render_to_response('maps/choose_coords.html', {'map': map, 'location_list': location_list, 'coordinates_list': coordinates_list})
+    # Zur weiteren Verarbeitung der link-Liste wird sie in json umgewandelt
+    coordinates_list_data = serializers.serialize("json", Link.objects.filter(map=m).all())
+    json_list = simplejson.dumps(coordinates_list_data)
+    
+    return render_to_response('maps/choose_coords.html', {'map': m, 'location_list': location_list, 'coordinates_list_data': coordinates_list_data})
     
 #...........................................................................
 

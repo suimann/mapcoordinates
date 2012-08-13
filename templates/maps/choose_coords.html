@@ -59,7 +59,7 @@
         </style>
     </head>
     <body>
-        <form  action="." method="post">
+        <form  action="/maps/choose_coords/save/" method="post">
             <div id="divid" class="examplediv">
                 {% csrf_token %}
                 {### Anzeige der vorhandenen Räume ###}
@@ -72,6 +72,7 @@
                 {% endfor %}
                 </select>
                 <input type="hidden" name="map_id" value="{{ map.id }}">
+                <input type="hidden" name="map_name" value="{{map_name}}">
                 Koordinaten:&nbsp; <input type="text" readonly="TRUE" name="coords" id="coordField" class="coord "value="">
                 <input name="submit_button" type="submit" class="button">
             </div>

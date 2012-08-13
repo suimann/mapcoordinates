@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # Path to Coordinate Form
     url(r'^maps/$', 'maps.views.index'),
     url(r'^maps/choose_coords/$', 'maps.views.choose'),
+    url(r'^maps/choose_coords/save/$', 'maps.views.save'),
     #url(r'^maps/setter/$', 'maps.views.setter'),
     # Examples:
     # url(r'^$', 'MapCoordinates.views.home', name='home'),
